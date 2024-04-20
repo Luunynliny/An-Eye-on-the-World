@@ -11,7 +11,7 @@
 
 <div align="center">
     <a href="">
-        <img src="imgs/code_civil.jpg" alt="Logo" height="80">
+        <img src="imgs/themis.jpg" alt="Logo" height="80">
     </a>
     <h3 align="center">France's Law map</h3>
     <p align="center">
