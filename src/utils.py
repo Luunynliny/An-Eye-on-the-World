@@ -37,7 +37,7 @@ def get_article_data(article_id: str) -> tuple[str, list[str]]:
     """
     ###
     # An Article page could contain a button to display all the other Codes' Articles where the Article is quoted
-    # If so, we need to click on this button to make these informations appear on the page
+    # If so, we need to click on this button to make this information appear on the page
     options = webdriver.FirefoxOptions()
     options.add_argument("-headless")
 
