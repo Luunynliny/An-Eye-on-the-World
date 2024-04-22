@@ -27,10 +27,11 @@ def get_code_non_abrogated_articles(code_id: str) -> list[str]:
     return [element.get("id")[3:] for element in soup.select(".articleLink:not(.abrogated)")]
 
 
-def get_article_data(article_id: str) -> tuple[str, list[str]]:
+def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]]:
     """
     Args:
-        article_id (): id of an Article.
+        article_id (str): id of an Article.
+        driver (webdriver): webdriver instance.
 
     Returns:
         tuple[str, list[str]]: name of the Article and Codes' Articles' id quoting the Article.
@@ -38,10 +39,6 @@ def get_article_data(article_id: str) -> tuple[str, list[str]]:
     ###
     # An Article page could contain a button to display all the other Codes' Articles where the Article is quoted
     # If so, we need to click on this button to make this information appear on the page
-    options = webdriver.FirefoxOptions()
-    options.add_argument("-headless")
-
-    driver = webdriver.Firefox(options=options)
     driver.get(join(ENV["ARTICLES_DB_URL"], article_id, ENV["DATE"]))
 
     is_article_quoted = True
@@ -65,5 +62,4 @@ def get_article_data(article_id: str) -> tuple[str, list[str]]:
             if text.split()[0] in ["Code", "Livre"]:  # "Livre" is for the Livre des procédures fiscales (2024-04-20)
                 relative_codes_article_ids.append(_id)
 
-    driver.quit()  # Exit now to avoid inconsistencies
     return name, relative_codes_article_ids
