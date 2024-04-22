@@ -18,7 +18,7 @@ def get_soup(url: str) -> BeautifulSoup:
 def get_code_non_abrogated_articles(code_id: str) -> list[str]:
     """
     Args:
-        code_id (str): id of a Code.
+        code_id (str): Code id.
 
     Returns:
         list[str]: ids of non-abrogated articles within the Code.
@@ -30,11 +30,11 @@ def get_code_non_abrogated_articles(code_id: str) -> list[str]:
 def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]]:
     """
     Args:
-        article_id (str): id of an Article.
+        article_id (str): Article id.
         driver (webdriver): webdriver instance.
 
     Returns:
-        tuple[str, list[str]]: name of the Article and Codes' Articles' id quoting the Article.
+        tuple[str, list[str]]: Article name and Codes Articles id quoting the Article.
     """
     ###
     # An Article page could contain a button to display all the other Codes' Articles where the Article is quoted
