@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<gexf version="1.3">
+    <meta>
+        <creator>Luunynliny</creator>
+        <description>Law of France map</description>
+    </meta>
+    <graph defaultedgetype="directed">
+        <nodes>
+        </nodes>
+        <edges>
+        </edges>
+    </graph>
+</gexf>
