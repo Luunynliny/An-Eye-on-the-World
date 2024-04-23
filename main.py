@@ -2,9 +2,10 @@ from icecream import ic
 from selenium import webdriver
 
 from src.gexf_document import GEXFDocument
-from src.utils import get_code_non_abrogated_articles, get_article_data, get_article_name
+from src.utils import get_article_name, get_code_non_abrogated_articles, get_article_data
 
-CODE_DEONTOLOGIE_ARCHITECTES_ID: str = "LEGITEXT000006074232"
+CODE_DOMAINE_ETAT_ID: str = "LEGITEXT000006070208"
+# CODE_DEONTOLOGIE_ARCHITECTES_ID: str = "LEGITEXT000006074232"
 articles: dict[str, dict[str, list[str]]] = {}
 
 # Init webdriver
@@ -19,10 +20,10 @@ gexf_doc: GEXFDocument = GEXFDocument()
 # Retrieve all Code Articles
 seen_article_ids: set[str] = set()
 
-for article_id in get_code_non_abrogated_articles(CODE_DEONTOLOGIE_ARCHITECTES_ID):
+for article_id in get_code_non_abrogated_articles(CODE_DOMAINE_ETAT_ID):
     article_name, quoted_article_ids = get_article_data(article_id, driver)
 
-    ic(article_name)
+    ic(article_id, article_name)
 
     if article_id not in seen_article_ids:
         # Create GEXF node
@@ -39,6 +40,6 @@ for article_id in get_code_non_abrogated_articles(CODE_DEONTOLOGIE_ARCHITECTES_I
             seen_article_ids.add(quoted_article_id)
 
 # Save result
-gexf_doc.save("Code_de_deontologie")
+gexf_doc.save("Code_du_domaine_de_l_Etat")
 
 driver.quit()

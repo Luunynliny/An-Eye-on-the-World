@@ -62,12 +62,20 @@ def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]
     # Only keep quotations of other Code's Articles
     quoted_codes_article_ids = []
     for link in quotations.find_next("ul").select("a"):
-        article_id = link.get("href").split("#")[1]
-        article_name = link.text
+        quoted_article_id = link.get("href").split("#")[1]
+        quoted_article_name = link.text
 
-        if article_name.split()[0] in ["Code",
-                                       "Livre"]:  # Livre des procédures fiscales (2024-04-20)
-            quoted_codes_article_ids.append(article_id)
+        if quoted_article_name.split()[0] not in ["Code",
+                                                  "Livre"]:  # Livre des procédures fiscales (2024-04-20)
+            continue
+
+        # Avoid abrogated unremoved quotation (e.g. Code du domaine de l'Etat Article R1 (2024-04-20))
+        if "art." not in quoted_article_name:
+            continue
+        if is_quoted_article_abrogated(quoted_article_id):
+            continue
+
+        quoted_codes_article_ids.append(quoted_article_id)
 
     return name, quoted_codes_article_ids
 
@@ -82,3 +90,15 @@ def get_article_name(article_id: str) -> str:
     """
     soup = get_soup(join(ENV["ARTICLES_DB_URL"], article_id, ENV["DATE"]))
     return soup.select(".name-article span")[0].text
+
+
+def is_quoted_article_abrogated(quoted_article_id: str) -> bool:
+    """
+    Args:
+        quoted_article_id (): Article id.
+
+    Returns:
+        bool: True if article is abrogated, False otherwise.
+    """
+    soup = get_soup(join(ENV["ARTICLES_DB_URL"], quoted_article_id, ENV["DATE"]))
+    return "depuis" not in soup.select(".version-article")[0].text
