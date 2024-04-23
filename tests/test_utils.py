@@ -6,7 +6,8 @@ from src.utils import get_soup, get_code_non_abrogated_articles, get_article_dat
 
 CODE_CIVIL_ID: str = "LEGITEXT000006070721"
 CODE_CIVIL_ARTICLE_1_ID: str = "LEGIARTI000006419280"
-CODE_CIVIL_ARTICLE_2_ID: str = "LEGIARTI000006419281"
+CODE_CIVIL_ARTICLE_21_19_ID: str = "LEGIARTI000006419879"
+CODE_CIVIL_ARTICLE_92_ID: str = "LEGIARTI000006421376"
 
 CODE_DEONTOLOGIE_ARCHITECTES_ID: str = "LEGITEXT000006074232"
 CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID: str = "LEGIARTI000006842411"
@@ -50,7 +51,34 @@ def test_get_code_non_abrogated_articles():
 
 
 def test_get_article_data(driver):
-    # Article is quoted within other Codes
+    # Article quote other Codes Articles
+    article_data = get_article_data(CODE_CIVIL_ARTICLE_92_ID, driver)
+
+    assert isinstance(article_data, tuple)
+    assert len(article_data) == 2
+
+    assert isinstance(article_data[0], str)
+    assert article_data[0] == "Article 92"
+
+    assert isinstance(article_data[1], list)
+    assert len(article_data[1]) == 4
+    assert isinstance(article_data[1][0], str)
+    assert article_data[1] == ["LEGIARTI000006421855", "LEGIARTI000006421836", "LEGIARTI000006421846",
+                               "LEGIARTI000039367547"]
+
+    # Article does not quoted other Codes Articles
+    article_data = get_article_data(CODE_CIVIL_ARTICLE_21_19_ID, driver)
+
+    assert isinstance(article_data, tuple)
+    assert len(article_data) == 2
+
+    assert isinstance(article_data[0], str)
+    assert article_data[0] == "Article 21-19"
+
+    assert isinstance(article_data[1], list)
+    assert len(article_data[1]) == 0
+
+    # Article does not quoted
     article_data = get_article_data(CODE_CIVIL_ARTICLE_1_ID, driver)
 
     assert isinstance(article_data, tuple)
@@ -60,23 +88,9 @@ def test_get_article_data(driver):
     assert article_data[0] == "Article 1"
 
     assert isinstance(article_data[1], list)
-    assert len(article_data[1]) == 2
-    assert isinstance(article_data[1][0], str)
-    assert article_data[1] == ["LEGIARTI000031367546", "LEGIARTI000006450479"]
-
-    # Article is not quoted within other Codes
-    article_data = get_article_data(CODE_CIVIL_ARTICLE_2_ID, driver)
-
-    assert isinstance(article_data, tuple)
-    assert len(article_data) == 2
-
-    assert isinstance(article_data[0], str)
-    assert article_data[0] == "Article 2"
-
-    assert isinstance(article_data[1], list)
     assert len(article_data[1]) == 0
 
-    # Article is never quoted
+    # Article is an orphan
     article_data = get_article_data(CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID, driver)
 
     assert isinstance(article_data, tuple)

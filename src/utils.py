@@ -1,5 +1,5 @@
 from os.path import join, dirname
-
+from icecream import ic
 import requests
 from bs4 import BeautifulSoup
 from dotenv import dotenv_values
@@ -34,32 +34,39 @@ def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]
         driver (webdriver): webdriver instance.
 
     Returns:
-        tuple[str, list[str]]: Article name and Codes Articles id quoting the Article.
+        tuple[str, list[str]]: Article name and Codes Articles id quoted by the Article.
     """
     ###
-    # An Article page could contain a button to display all the other Codes' Articles where the Article is quoted
+    # An Article page could contain a button to display all the other Codes' Articles quoted within the Article
     # If so, we need to click on this button to make this information appear on the page
     driver.get(join(ENV["ARTICLES_DB_URL"], article_id, ENV["DATE"]))
 
-    is_article_quoted = True
+    is_article_orphan = False
     try:
         driver.find_element(By.ID, f"tip-tab-liens-{article_id}-1-button").click()
     except NoSuchElementException:
-        is_article_quoted = False
+        is_article_orphan = True
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     ###
 
     name = soup.select(".name-article span")[0].text
-    relative_codes_article_ids = []
 
-    if is_article_quoted:
-        # Only keep quotations from other Code's Articles
-        for link in soup.select(".relative-link li a"):
-            _id = link.get("href").split("#")[1]
-            text = link.text
+    if is_article_orphan:
+        return name, []
 
-            if text.split()[0] in ["Code", "Livre"]:  # "Livre" is for the Livre des procédures fiscales (2024-04-20)
-                relative_codes_article_ids.append(_id)
+    # Check if Article is quoting
+    if (quotations := soup.find("strong", text="Cite")) is None:
+        return name, []
 
-    return name, relative_codes_article_ids
+    # Only keep quotations of other Code's Articles
+    quoted_codes_article_ids = []
+    for link in quotations.find_next("ul").select("a"):
+        article_id = link.get("href").split("#")[1]
+        article_name = link.text
+
+        if article_name.split()[0] in ["Code",
+                                       "Livre"]:  # Livre des procédures fiscales (2024-04-20)
+            quoted_codes_article_ids.append(article_id)
+
+    return name, quoted_codes_article_ids
