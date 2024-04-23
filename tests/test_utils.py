@@ -2,7 +2,7 @@ import pytest
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
-from src.utils import get_soup, get_code_non_abrogated_articles, get_article_data
+from src.utils import get_soup, get_code_non_abrogated_articles, get_article_data, get_article_name
 
 CODE_CIVIL_ID: str = "LEGITEXT000006070721"
 CODE_CIVIL_ARTICLE_1_ID: str = "LEGIARTI000006419280"
@@ -101,3 +101,10 @@ def test_get_article_data(driver):
 
     assert isinstance(article_data[1], list)
     assert len(article_data[1]) == 0
+
+
+def test_get_article_name():
+    assert get_article_name(CODE_CIVIL_ARTICLE_1_ID) == "Article 1"
+    assert get_article_name(CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID) == "Article 1"
+    assert get_article_name(CODE_CIVIL_ARTICLE_92_ID) == "Article 92"
+    assert get_article_name(CODE_CIVIL_ARTICLE_21_19_ID) == "Article 21-19"

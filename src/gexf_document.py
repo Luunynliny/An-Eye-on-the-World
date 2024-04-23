@@ -4,10 +4,10 @@ from xml.etree import ElementTree
 
 class GEXFDocument:
     def __init__(self):
-        self.tree: ElementTree.ElementTree = ElementTree.parse(join(dirname(__file__), 'template.gexf'))
+        self._tree: ElementTree.ElementTree = ElementTree.parse(join(dirname(__file__), 'template.gexf'))
 
-        self.nodes: ElementTree.Element = self.tree.find(".//nodes")
-        self.edges: ElementTree.Element = self.tree.find(".//edges")
+        self._nodes: ElementTree.Element = self._tree.find(".//nodes")
+        self._edges: ElementTree.Element = self._tree.find(".//edges")
 
     def add_node(self, node_id: str, node_label: str) -> None:
         """
@@ -19,7 +19,7 @@ class GEXFDocument:
             None
         """
         node = ElementTree.Element("node", {"id": node_id, "label": node_label})
-        self.nodes.append(node)
+        self._nodes.append(node)
 
     def add_edge(self, edge_source: str, edge_target: str) -> None:
         """
@@ -30,5 +30,21 @@ class GEXFDocument:
         Returns:
             None
         """
-        edge = ElementTree.Element("node", {"source": edge_source, "target": edge_target})
-        self.edges.append(edge)
+        edge = ElementTree.Element("edge", {"source": edge_source, "target": edge_target})
+        self._edges.append(edge)
+
+    def save(self, filename: str) -> None:
+        """
+        Args:
+            filename (str): file name without extension.
+
+        Returns:
+            Nome
+        """
+        filepath = join(dirname(__file__), f"../gexf_files/{filename}.gexf")
+
+        # Ensure proper XML formatting
+        ElementTree.indent(self._tree, '    ')
+
+        with open(filepath, "wb") as f:
+            f.write(b'<?xml version="1.0" encoding="utf-8"?>\n' + ElementTree.tostring(self._tree.getroot()))
