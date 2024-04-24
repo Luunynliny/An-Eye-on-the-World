@@ -27,15 +27,15 @@ def create_code_graph(code_id: str) -> None:
     seen_article_ids: set[str] = set()
 
     for article_id in get_code_non_abrogated_articles(code_id):
-        article_name, quoted_article_ids = get_article_data(article_id, driver)
+        article_data = get_article_data(article_id, driver)
 
         if article_id not in seen_article_ids:
             # Create GEXF node
-            gexf_doc.add_node(article_id, article_name)
+            gexf_doc.add_node(article_id, article_data["name"])
             seen_article_ids.add(article_id)
 
         # Create quotation links
-        for quoted_article_id in quoted_article_ids:
+        for quoted_article_id in article_data["quotation_ids"]:
             gexf_doc.add_edge(article_id, quoted_article_id)
 
             if quoted_article_id not in seen_article_ids:

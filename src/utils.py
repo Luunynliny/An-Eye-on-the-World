@@ -1,4 +1,5 @@
 from os.path import join
+from typing import Union
 
 import requests
 from bs4 import BeautifulSoup
@@ -39,7 +40,7 @@ def get_code_non_abrogated_articles(code_id: str) -> list[str]:
     return [element.get("id")[3:] for element in soup.select(".articleLink:not(.abrogated)")]
 
 
-def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]]:
+def get_article_data(article_id: str, driver: webdriver) -> dict[str, Union[str, list[str]]]:
     """
     Retrieve useful data of an Article:
     - Article name
@@ -50,7 +51,7 @@ def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]
         driver (webdriver): webdriver instance.
 
     Returns:
-        tuple[str, list[str]: Article name and quoted Codes Article ids.
+        dict[str, Union[str, list[str]]]: Article data.
     """
     ###
     # An Article page could contain a button to display all the other Codes' Articles quoted within the Article
@@ -69,11 +70,11 @@ def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]
     name = get_article_name(article_id)
 
     if is_article_orphan:
-        return name, []
+        return {"name": name, "quotation_ids": []}
 
     # Check if Article is quoting
     if (quotations := soup.find("strong", text="Cite")) is None:
-        return name, []
+        return {"name": name, "quotation_ids": []}
 
     # Only keep quotations of other Code's Articles
     quoted_codes_article_ids = []
@@ -93,7 +94,7 @@ def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]
 
         quoted_codes_article_ids.append(quoted_article_id)
 
-    return name, quoted_codes_article_ids
+    return {"name": name, "quotation_ids": quoted_codes_article_ids}
 
 
 def get_article_name(article_id: str) -> str:

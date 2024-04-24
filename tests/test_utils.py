@@ -59,67 +59,58 @@ def test_get_article_data(driver):
     # Article quote other Codes Articles
     article_data = get_article_data(CODE_CIVIL_ARTICLE_92_ID, driver)
 
-    assert isinstance(article_data, tuple)
-    assert len(article_data) == 2
+    assert isinstance(article_data, dict)
+    assert list(article_data.keys()) == ["name", "quotation_ids"]
+    for value, value_type in zip(article_data.values(), [str, list]):
+        assert isinstance(value, value_type)
 
-    assert isinstance(article_data[0], str)
-    assert article_data[0] == "Article 92"
-
-    assert isinstance(article_data[1], list)
-    assert len(article_data[1]) == 4
-    assert isinstance(article_data[1][0], str)
-    assert article_data[1] == ["LEGIARTI000006421855", "LEGIARTI000006421836", "LEGIARTI000006421846",
-                               "LEGIARTI000039367547"]
+    assert article_data == {"name": "Article 92",
+                            "quotation_ids": ["LEGIARTI000006421855", "LEGIARTI000006421836", "LEGIARTI000006421846",
+                                              "LEGIARTI000039367547"]}
 
     # Article quote abrogated Code Articles
     article_data = get_article_data(CODE_DOMAINE_ETAT_ARTICLE_R1_ID, driver)
 
-    assert isinstance(article_data, tuple)
-    assert len(article_data) == 2
+    assert isinstance(article_data, dict)
+    assert list(article_data.keys()) == ["name", "quotation_ids"]
+    for value, value_type in zip(article_data.values(), [str, list]):
+        assert isinstance(value, value_type)
 
-    assert isinstance(article_data[0], str)
-    assert article_data[0] == "Article R1"
-
-    assert isinstance(article_data[1], list)
-    assert len(article_data[1]) == 2
-    assert isinstance(article_data[1][0], str)
-    assert article_data[1] == ["LEGIARTI000006350687", "LEGIARTI000006350304"]
+    assert article_data == {"name": "Article R1",
+                            "quotation_ids": ["LEGIARTI000006350687", "LEGIARTI000006350304"]}
 
     # Article does not quoted other Codes Articles
     article_data = get_article_data(CODE_CIVIL_ARTICLE_21_19_ID, driver)
 
-    assert isinstance(article_data, tuple)
-    assert len(article_data) == 2
+    assert isinstance(article_data, dict)
+    assert list(article_data.keys()) == ["name", "quotation_ids"]
+    for value, value_type in zip(article_data.values(), [str, list]):
+        assert isinstance(value, value_type)
 
-    assert isinstance(article_data[0], str)
-    assert article_data[0] == "Article 21-19"
-
-    assert isinstance(article_data[1], list)
-    assert len(article_data[1]) == 0
+    assert article_data == {"name": "Article 21-19",
+                            "quotation_ids": []}
 
     # Article does not quoted
     article_data = get_article_data(CODE_CIVIL_ARTICLE_1_ID, driver)
 
-    assert isinstance(article_data, tuple)
-    assert len(article_data) == 2
+    assert isinstance(article_data, dict)
+    assert list(article_data.keys()) == ["name", "quotation_ids"]
+    for value, value_type in zip(article_data.values(), [str, list]):
+        assert isinstance(value, value_type)
 
-    assert isinstance(article_data[0], str)
-    assert article_data[0] == "Article 1"
-
-    assert isinstance(article_data[1], list)
-    assert len(article_data[1]) == 0
+    assert article_data == {"name": "Article 1",
+                            "quotation_ids": []}
 
     # Article is an orphan
     article_data = get_article_data(CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID, driver)
 
-    assert isinstance(article_data, tuple)
-    assert len(article_data) == 2
+    assert isinstance(article_data, dict)
+    assert list(article_data.keys()) == ["name", "quotation_ids"]
+    for value, value_type in zip(article_data.values(), [str, list]):
+        assert isinstance(value, value_type)
 
-    assert isinstance(article_data[0], str)
-    assert article_data[0] == "Article 1"
-
-    assert isinstance(article_data[1], list)
-    assert len(article_data[1]) == 0
+    assert article_data == {"name": "Article 1",
+                            "quotation_ids": []}
 
 
 def test_get_article_name():
