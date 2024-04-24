@@ -6,6 +6,8 @@ from src.utils import get_code_non_abrogated_articles, get_article_data, get_art
 
 def create_code_graph(code_id: str) -> None:
     """
+    Create a GEFX document graph of a Code.
+
     Args:
         code_id (str): Code id.
 

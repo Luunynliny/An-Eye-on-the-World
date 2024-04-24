@@ -12,17 +12,28 @@ DATE: str = "2024-04-20"
 
 
 def get_soup(url: str) -> BeautifulSoup:
+    """
+    Create a BeautifulSoup object from a URL.
+
+    Args:
+        url (str): URL to parse.
+
+    Returns:
+        BeautifulSoup: BeautifulSoup object.
+    """
     response = requests.get(url)
     return BeautifulSoup(response.text, 'html.parser')
 
 
 def get_code_non_abrogated_articles(code_id: str) -> list[str]:
     """
+    Get the non-abrogated Articles from a Code.
+
     Args:
         code_id (str): Code id.
 
     Returns:
-        list[str]: ids of non-abrogated articles within the Code.
+        list[str]: non-abrogated article ids.
     """
     soup = get_soup(join(CODES_DB_URL, code_id, DATE))
     return [element.get("id")[3:] for element in soup.select(".articleLink:not(.abrogated)")]
@@ -30,6 +41,10 @@ def get_code_non_abrogated_articles(code_id: str) -> list[str]:
 
 def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]]:
     """
+    Retrieve useful data of an Article:
+    - Article name
+    - quoted Code Article ids
+
     Args:
         article_id (str): Article id.
         driver (webdriver): webdriver instance.
@@ -83,6 +98,8 @@ def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]
 
 def get_article_name(article_id: str) -> str:
     """
+    Retrieve the name of an Article.
+
     Args:
         article_id (str): Article id.
 
@@ -95,6 +112,8 @@ def get_article_name(article_id: str) -> str:
 
 def is_quoted_article_abrogated(quoted_article_id: str) -> bool:
     """
+    Check if an Article has an abrogated.
+
     Args:
         quoted_article_id (): Article id.
 
@@ -107,6 +126,8 @@ def is_quoted_article_abrogated(quoted_article_id: str) -> bool:
 
 def get_code_name(code_id: str) -> str:
     """
+    Retrieve the name of a Code.
+
     Args:
         code_id (str): Code id.
 

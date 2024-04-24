@@ -3,6 +3,10 @@ from xml.etree import ElementTree
 
 
 class GEXFDocument:
+    """
+    GEFX Document class.
+    """
+
     def __init__(self):
         self._tree: ElementTree.ElementTree = ElementTree.parse(join(dirname(__file__), 'template.gexf'))
 
@@ -11,6 +15,8 @@ class GEXFDocument:
 
     def add_node(self, node_id: str, node_label: str) -> None:
         """
+        Add a node to the document.
+
         Args:
             node_id (str): node id.
             node_label (str): node label.
@@ -23,6 +29,8 @@ class GEXFDocument:
 
     def add_edge(self, edge_source: str, edge_target: str) -> None:
         """
+        Add an edge to the document.
+
         Args:
             edge_source (): edge source.
             edge_target (): edge target.
@@ -35,6 +43,8 @@ class GEXFDocument:
 
     def save(self, filename: str) -> None:
         """
+        Save the document.
+
         Args:
             filename (str): file name without extension.
 
