@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 from src.utils import get_soup, get_code_non_abrogated_articles, get_article_data, get_article_name, \
-    is_quoted_article_abrogated
+    is_quoted_article_abrogated, get_code_name
 
 CODE_CIVIL_ID: str = "LEGITEXT000006070721"
 CODE_CIVIL_ARTICLE_1_ID: str = "LEGIARTI000006419280"
@@ -13,6 +13,7 @@ CODE_CIVIL_ARTICLE_92_ID: str = "LEGIARTI000006421376"
 CODE_DEONTOLOGIE_ARCHITECTES_ID: str = "LEGITEXT000006074232"
 CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID: str = "LEGIARTI000006842411"
 
+CODE_DOMAINE_ETAT_ID: str = "LEGITEXT000006070208"
 CODE_DOMAINE_ETAT_ARTICLE_R1_ID: str = "LEGIARTI000006350500"
 CODE_DOMAINE_ETAT_ARTICLE_L3_ID: str = "LEGIARTI000006350304"
 
@@ -131,3 +132,9 @@ def test_get_article_name():
 def test_is_quoted_article_abrogated():
     assert not is_quoted_article_abrogated(CODE_CIVIL_ARTICLE_92_ID)
     assert is_quoted_article_abrogated(CODE_DOMAINE_ETAT_ARTICLE_L3_ID)
+
+
+def test_get_code_name():
+    assert get_code_name(CODE_CIVIL_ID) == "Code_civil"
+    assert get_code_name(CODE_DEONTOLOGIE_ARCHITECTES_ID) == "Code_de_déontologie_des_architectes"
+    assert get_code_name(CODE_DOMAINE_ETAT_ID) == "Code_du_domaine_de_l_Etat"

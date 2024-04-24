@@ -102,3 +102,15 @@ def is_quoted_article_abrogated(quoted_article_id: str) -> bool:
     """
     soup = get_soup(join(ENV["ARTICLES_DB_URL"], quoted_article_id, ENV["DATE"]))
     return "depuis" not in soup.select(".version-article")[0].text
+
+
+def get_code_name(code_id: str) -> str:
+    """
+    Args:
+        code_id (str): Code id.
+
+    Returns:
+        str: Code name.
+    """
+    soup = get_soup(join(ENV["CODES_DB_URL"], code_id, ENV["DATE"]))
+    return soup.select(".main-title")[0].text.replace("'", " ").replace(" ", "_")

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gexf version="1.3">
+    <graph defaultedgetype="directed">
+        <nodes>
+            <node id="LEGIARTI000006842411" label="Article 1" />
+            <node id="LEGIARTI000006842412" label="Article 2" />
+            <node id="LEGIARTI000006842413" label="Article 3" />
+            <node id="LEGIARTI000006842415" label="Article 4" />
+            <node id="LEGIARTI000006842416" label="Article 5" />
+            <node id="LEGIARTI000006842417" label="Article 6" />
+            <node id="LEGIARTI000006842418" label="Article 7" />
+            <node id="LEGIARTI000006842419" label="Article 8" />
+            <node id="LEGIARTI000006842420" label="Article 9" />
+            <node id="LEGIARTI000006842421" label="Article 10" />
+            <node id="LEGIARTI000006842422" label="Article 10 bis" />
+            <node id="LEGIARTI000006842423" label="Article 11" />
+            <node id="LEGIARTI000006842425" label="Article 12" />
+            <node id="LEGIARTI000006842426" label="Article 13" />
+            <node id="LEGIARTI000006842427" label="Article 14" />
+            <node id="LEGIARTI000006842428" label="Article 15" />
+            <node id="LEGIARTI000006842443" label="Article 29" />
+            <node id="LEGIARTI000006842429" label="Article 16" />
+            <node id="LEGIARTI000006842430" label="Article 17" />
+            <node id="LEGIARTI000006842431" label="Article 18" />
+            <node id="LEGIARTI000006842432" label="Article 19" />
+            <node id="LEGIARTI000006842433" label="Article 20" />
+            <node id="LEGIARTI000006842435" label="Article 21" />
+            <node id="LEGIARTI000006842436" label="Article 22" />
+            <node id="LEGIARTI000006842437" label="Article 23" />
+            <node id="LEGIARTI000006842438" label="Article 24" />
+            <node id="LEGIARTI000006842439" label="Article 25" />
+            <node id="LEGIARTI000006842441" label="Article 27" />
+            <node id="LEGIARTI000006842442" label="Article 28" />
+            <node id="LEGIARTI000006842444" label="Article 30" />
+            <node id="LEGIARTI000006842445" label="Article 31" />
+            <node id="LEGIARTI000006842446" label="Article 32" />
+            <node id="LEGIARTI000006842447" label="Article 33" />
+            <node id="LEGIARTI000006842448" label="Article 34" />
+            <node id="LEGIARTI000006842449" label="Article 35" />
+            <node id="LEGIARTI000006842450" label="Article 36" />
+            <node id="LEGIARTI000006842451" label="Article 37" />
+            <node id="LEGIARTI000006842453" label="Article 38" />
+            <node id="LEGIARTI000006842454" label="Article 39" />
+            <node id="LEGIARTI000006842455" label="Article 40" />
+            <node id="LEGIARTI000006842456" label="Article 41" />
+            <node id="LEGIARTI000006842457" label="Article 42" />
+            <node id="LEGIARTI000006842458" label="Article 43" />
+            <node id="LEGIARTI000006842459" label="Article 44" />
+            <node id="LEGIARTI000006842460" label="Article 45" />
+            <node id="LEGIARTI000006842461" label="Article 46" />
+            <node id="LEGIARTI000006842462" label="Article 47" />
+            <node id="LEGIARTI000006842463" label="Article 48" />
+        </nodes>
+        <edges>
+            <edge source="LEGIARTI000006842428" target="LEGIARTI000006842443" />
+            <edge source="LEGIARTI000006842444" target="LEGIARTI000006842428" />
+            <edge source="LEGIARTI000006842453" target="LEGIARTI000006842426" />
+        </edges>
+    </graph>
+</gexf>
