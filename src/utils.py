@@ -1,13 +1,14 @@
-from os.path import join, dirname
+from os.path import join
 
 import requests
 from bs4 import BeautifulSoup
-from dotenv import dotenv_values
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
-ENV: dict[str, str] = dotenv_values(join(dirname(__file__), ".env"))
+ARTICLES_DB_URL = "https://www.legifrance.gouv.fr/codes/article_lc"
+CODES_DB_URL = "https://www.legifrance.gouv.fr/codes/texte_lc"
+DATE: str = "2024-04-20"
 
 
 def get_soup(url: str) -> BeautifulSoup:
@@ -23,7 +24,7 @@ def get_code_non_abrogated_articles(code_id: str) -> list[str]:
     Returns:
         list[str]: ids of non-abrogated articles within the Code.
     """
-    soup = get_soup(join(ENV["CODES_DB_URL"], code_id, ENV["DATE"]))
+    soup = get_soup(join(CODES_DB_URL, code_id, DATE))
     return [element.get("id")[3:] for element in soup.select(".articleLink:not(.abrogated)")]
 
 
@@ -39,7 +40,7 @@ def get_article_data(article_id: str, driver: webdriver) -> tuple[str, list[str]
     ###
     # An Article page could contain a button to display all the other Codes' Articles quoted within the Article
     # If so, we need to click on this button to make this information appear on the page
-    driver.get(join(ENV["ARTICLES_DB_URL"], article_id, ENV["DATE"]))
+    driver.get(join(ARTICLES_DB_URL, article_id, DATE))
 
     is_article_orphan = False
     try:
@@ -88,7 +89,7 @@ def get_article_name(article_id: str) -> str:
     Returns:
         str: Article name.
     """
-    soup = get_soup(join(ENV["ARTICLES_DB_URL"], article_id, ENV["DATE"]))
+    soup = get_soup(join(ARTICLES_DB_URL, article_id, DATE))
     return soup.select(".name-article span")[0].text
 
 
@@ -100,7 +101,7 @@ def is_quoted_article_abrogated(quoted_article_id: str) -> bool:
     Returns:
         bool: True if article is abrogated, False otherwise.
     """
-    soup = get_soup(join(ENV["ARTICLES_DB_URL"], quoted_article_id, ENV["DATE"]))
+    soup = get_soup(join(ARTICLES_DB_URL, quoted_article_id, DATE))
     return "depuis" not in soup.select(".version-article")[0].text
 
 
@@ -112,5 +113,5 @@ def get_code_name(code_id: str) -> str:
     Returns:
         str: Code name.
     """
-    soup = get_soup(join(ENV["CODES_DB_URL"], code_id, ENV["DATE"]))
+    soup = get_soup(join(CODES_DB_URL, code_id, DATE))
     return soup.select(".main-title")[0].text.replace("'", " ").replace(" ", "_")
