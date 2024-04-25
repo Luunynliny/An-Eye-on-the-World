@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-from src.article import get_article_data, get_article_name, get_article_soup
+from src.article import get_article_name, get_article_soup, get_article_quote_ids
 from src.code import get_code_non_abrogated_articles, get_code_name, get_code_soup
 from src.gexf_document import GEXFDocument
 
@@ -30,7 +30,6 @@ def create_code_graph(code_id: str) -> None:
 
     for article_id in get_code_non_abrogated_articles(code_soup):
         article_soup = get_article_soup(article_id)
-        article_data = get_article_data(article_id, driver)
 
         if article_id not in seen_article_ids:
             # Create GEXF node
@@ -38,7 +37,7 @@ def create_code_graph(code_id: str) -> None:
             seen_article_ids.add(article_id)
 
         # Create quotation links
-        for quoted_article_id in article_data["quotation_ids"]:
+        for quoted_article_id in get_article_quote_ids(article_soup, driver):
             quoted_article_soup = get_article_soup(quoted_article_id)
             gexf_doc.add_edge(article_id, quoted_article_id)
 

@@ -1,5 +1,4 @@
 from os.path import join
-from typing import Union
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -27,7 +26,7 @@ def get_article_soup(article_id: str) -> BeautifulSoup:
 
 def get_article_name(article_soup: BeautifulSoup) -> str:
     """
-    Retrieve the name of an Article.
+    Get Article name.
 
     Args:
         article_soup (BeautifulSoup): Article soup.
@@ -51,19 +50,32 @@ def is_article_abrogated(article_soup: BeautifulSoup) -> bool:
     return "depuis" not in article_soup.select(".version-article")[0].text
 
 
-def get_article_data(article_id: str, driver: webdriver) -> dict[str, Union[str, list[str]]]:
+def get_article_text_length(article_soup: BeautifulSoup) -> int:
     """
-    Retrieve useful data of an Article:
-    - Article name
-    - quoted Code Article ids
+    Get Article text length.
 
     Args:
-        article_id (str): Article id.
+        article_soup (BeautifulSoup): Article soup.
+
+    Returns:
+        int: Article number of words.
+    """
+    return len(article_soup.select(".list-article-consommation .content p")[0].text.strip().split())
+
+
+def get_article_quote_ids(article_soup: BeautifulSoup, driver: webdriver) -> list[str]:
+    """
+    Get Code Article ids quoted by the Article.
+
+    Args:
+        article_soup (BeautifulSoup): Article soup.
         driver (webdriver): webdriver instance.
 
     Returns:
-        dict[str, Union[str, list[str]]]: Article data.
+        list[str]: quoted Article ids.
     """
+    article_id = article_soup.select(".name-article")[0].attrs["data-anchor"]
+
     ###
     # An Article page could contain a button to display all the other Codes' Articles quoted within the Article
     # If so, we need to click on this button to make this information appear on the page
@@ -75,34 +87,32 @@ def get_article_data(article_id: str, driver: webdriver) -> dict[str, Union[str,
     except NoSuchElementException:
         is_article_orphan = True
 
-    article_soup = BeautifulSoup(driver.page_source, 'html.parser')
+    clicked_article_soup = BeautifulSoup(driver.page_source, 'html.parser')
     ###
 
-    name = get_article_name(article_soup)
-
     if is_article_orphan:
-        return {"name": name, "quotation_ids": []}
+        return []
 
     # Check if Article is quoting
-    if (quotations := article_soup.find("strong", text="Cite")) is None:
-        return {"name": name, "quotation_ids": []}
+    if (quotations := clicked_article_soup.find("strong", text="Cite")) is None:
+        return []
 
     # Only keep quotations of other Code's Articles
     quoted_codes_article_ids = []
     for link in quotations.find_next("ul").select("a"):
         quoted_article_id = link.get("href").split("#")[1]
-        quoted_article_name = link.text
+        link_name = link.text
 
-        if quoted_article_name.split()[0] not in ["Code",
-                                                  "Livre"]:  # Livre des procédures fiscales (2024-04-20)
+        if link_name.split()[0] not in ["Code",
+                                        "Livre"]:  # Livre des procédures fiscales (2024-04-20)
             continue
 
         # Avoid abrogated unremoved quotation (e.g. Code du domaine de l'Etat Article R1 (2024-04-20))
-        if "art." not in quoted_article_name:
+        if "art." not in link_name:
             continue
         if is_article_abrogated(article_soup):
             continue
 
         quoted_codes_article_ids.append(quoted_article_id)
 
-    return {"name": name, "quotation_ids": quoted_codes_article_ids}
+    return quoted_codes_article_ids
