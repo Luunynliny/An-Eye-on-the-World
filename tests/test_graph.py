@@ -1,8 +1,8 @@
 from os import remove
 from os.path import join, dirname, exists
 
+from src.code import get_code_name, get_code_soup
 from src.graph import create_code_graph
-from src.utils import get_code_name
 
 CODE_DEONTOLOGIE_ARCHITECTES_ID: str = "LEGITEXT000006074232"
 
@@ -12,7 +12,7 @@ def test_create_code_graph():
         code_deontologie_architectes = f.read()
 
     create_code_graph(CODE_DEONTOLOGIE_ARCHITECTES_ID)
-    filename = get_code_name(CODE_DEONTOLOGIE_ARCHITECTES_ID)
+    filename = get_code_name(get_code_soup(CODE_DEONTOLOGIE_ARCHITECTES_ID))
 
     filepath = join(dirname(__file__), f"../gexf_files/{filename}.gexf")
     assert exists(filepath)
