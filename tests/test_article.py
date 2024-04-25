@@ -37,10 +37,10 @@ def test_get_article_name():
 
 def test_is_article_abrogated():
     code_civil_article_92_soup = get_article_soup(CODE_CIVIL_ARTICLE_92_ID)
-    code_domaine_etat_article_L3_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_L3_ID)
+    code_domaine_etat_article_l3_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_L3_ID)
 
     assert not is_article_abrogated(code_civil_article_92_soup)
-    assert is_article_abrogated(code_domaine_etat_article_L3_soup)
+    assert is_article_abrogated(code_domaine_etat_article_l3_soup)
 
 
 def test_get_article_text_length():
@@ -62,10 +62,9 @@ def test_get_article_quote_ids(driver):
                                                                          "LEGIARTI000039367547"]
 
     # Article quote abrogated Code Articles
-    code_domaine_etat_article_92_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_R1_ID)
+    code_domaine_etat_article_r1_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_R1_ID)
 
-    assert get_article_quote_ids(code_domaine_etat_article_92_soup, driver) == ["LEGIARTI000006350687",
-                                                                                "LEGIARTI000006350304"]
+    assert get_article_quote_ids(code_domaine_etat_article_r1_soup, driver) == ["LEGIARTI000006350687"]
 
     # Article does not quoted other Codes Articles
     code_civil_article_21_19_soup = get_article_soup(CODE_CIVIL_ARTICLE_21_19_ID)

@@ -110,7 +110,7 @@ def get_article_quote_ids(article_soup: BeautifulSoup, driver: webdriver) -> lis
         # Avoid abrogated unremoved quotation (e.g. Code du domaine de l'Etat Article R1 (2024-04-20))
         if "art." not in link_name:
             continue
-        if is_article_abrogated(article_soup):
+        if is_article_abrogated(get_article_soup(quoted_article_id)):
             continue
 
         quoted_codes_article_ids.append(quoted_article_id)
