@@ -10,6 +10,15 @@ from src.utils import get_soup
 ARTICLES_DB_URL = "https://www.legifrance.gouv.fr/codes/article_lc"
 DATE: str = "2024-04-20"
 
+ARTICLE_HIERARCHY = ["LO",  # Article LO119 Code électoral (2024-04-20)
+                     "L",  # Article L101-1 Code de l'urbanisme (2024-04-20)
+                     "R**",  # Article R**273 Code électoral (2024-04-20)
+                     "R*",  # Article R*121-1-1 Code de l'urbanisme (2024-04-20)
+                     "R",  # Article R1 Code électoral (2024-04-20)
+                     "D*",  # Article D*752-25 Code monétaire et financier (2024-04-20)
+                     "D",  # Article D1 Code de procédure pénale (2024-04-20)
+                     "A"]  # Article A424-1 Code de l'urbanisme (2024-04-20)
+
 
 def get_article_soup(article_id: str) -> BeautifulSoup:
     """
@@ -116,3 +125,23 @@ def get_article_quote_ids(article_soup: BeautifulSoup, driver: webdriver) -> lis
         quoted_codes_article_ids.append(quoted_article_id)
 
     return quoted_codes_article_ids
+
+
+def get_article_hierarchy(article_soup: BeautifulSoup) -> str:
+    """
+    Get article hierarchy.
+
+    Args:
+        article_soup (BeautifulSoup): Article soup.
+
+    Returns:
+        str: Article hierarchy group.
+    """
+    article_code = get_article_name(article_soup).split()[1]
+
+    for code in ARTICLE_HIERARCHY:
+        if code in article_code:
+            return code
+
+    # Special case for the Code civil as its divided in "Livres"
+    return "CC"
