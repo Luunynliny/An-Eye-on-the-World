@@ -42,4 +42,6 @@ Codes. Légifrance. (n.d.). https://www.legifrance.gouv.fr/liste/code?etatTexte=
 
 GEXF file format. GEXF File Format. (n.d.). http://gexf.net/
 
+Guide de Recherche de Légifrance. calameo.com. (n.d.). https://www.calameo.com/read/000318806216101aba147 
+
 <p align="right"><a href="#top"><i>back to top</i></a></p>
