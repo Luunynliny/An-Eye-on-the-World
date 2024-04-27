@@ -5,7 +5,6 @@
             <attribute id="0" title="Code Parent Id" type="string" />
             <attribute id="1" title="Hierarchy" type="string" />
             <attribute id="2" title="Text Length" type="integer" />
-            <attribute id="3" title="Codes Quotes" type="integer" />
         </attributes>
         <nodes>
             <node id="LEGIARTI000006842411" label="Article 1">
@@ -13,7 +12,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="28" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842412" label="Article 2">
@@ -21,7 +19,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="100" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842413" label="Article 3">
@@ -29,7 +26,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="62" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842415" label="Article 4">
@@ -37,7 +33,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="31" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842416" label="Article 5">
@@ -45,7 +40,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="68" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842417" label="Article 6">
@@ -53,7 +47,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="16" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842418" label="Article 7">
@@ -61,7 +54,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="28" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842419" label="Article 8">
@@ -69,7 +61,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="61" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842420" label="Article 9">
@@ -77,7 +68,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="11" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842421" label="Article 10">
@@ -85,7 +75,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="37" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842422" label="Article 10 bis">
@@ -93,7 +82,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="39" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842423" label="Article 11">
@@ -101,7 +89,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="58" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842425" label="Article 12">
@@ -109,7 +96,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="59" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842426" label="Article 13">
@@ -117,7 +103,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="43" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842427" label="Article 14">
@@ -125,7 +110,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="20" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842428" label="Article 15">
@@ -133,7 +117,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="86" />
-                    <attvalue for="3" value="1" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842443" label="Article 29">
@@ -141,7 +124,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="18" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842429" label="Article 16">
@@ -149,7 +131,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="119" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842430" label="Article 17">
@@ -157,7 +138,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="18" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842431" label="Article 18">
@@ -165,7 +145,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="18" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842432" label="Article 19">
@@ -173,7 +152,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="33" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842433" label="Article 20">
@@ -181,7 +159,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="20" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842435" label="Article 21">
@@ -189,7 +166,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="65" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842436" label="Article 22">
@@ -197,7 +173,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="89" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842437" label="Article 23">
@@ -205,7 +180,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="62" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842438" label="Article 24">
@@ -213,7 +187,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="4" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842439" label="Article 25">
@@ -221,7 +194,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="69" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842441" label="Article 27">
@@ -229,7 +201,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="31" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842442" label="Article 28">
@@ -237,7 +208,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="62" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842444" label="Article 30">
@@ -245,7 +215,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="58" />
-                    <attvalue for="3" value="1" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842445" label="Article 31">
@@ -253,7 +222,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="39" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842446" label="Article 32">
@@ -261,7 +229,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="89" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842447" label="Article 33">
@@ -269,7 +236,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="67" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842448" label="Article 34">
@@ -277,7 +243,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="61" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842449" label="Article 35">
@@ -285,7 +250,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="23" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842450" label="Article 36">
@@ -293,7 +257,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="105" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842451" label="Article 37">
@@ -301,7 +264,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="87" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842453" label="Article 38">
@@ -309,7 +271,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="69" />
-                    <attvalue for="3" value="1" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842454" label="Article 39">
@@ -317,7 +278,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="74" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842455" label="Article 40">
@@ -325,7 +285,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="18" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842456" label="Article 41">
@@ -333,7 +292,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="31" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842457" label="Article 42">
@@ -341,7 +299,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="93" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842458" label="Article 43">
@@ -349,7 +306,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="14" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842459" label="Article 44">
@@ -357,7 +313,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="31" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842460" label="Article 45">
@@ -365,7 +320,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="35" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842461" label="Article 46">
@@ -373,7 +327,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="235" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842462" label="Article 47">
@@ -381,7 +334,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="170" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842463" label="Article 48">
@@ -389,7 +341,6 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="15" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
         </nodes>

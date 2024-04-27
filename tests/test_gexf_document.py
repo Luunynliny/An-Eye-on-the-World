@@ -76,8 +76,8 @@ def test_save(gexf_doc):
         assert f.read() == blank
 
     # Add nodes and edge
-    gexf_doc.add_node("0", "Hello", ["AAA", "BBB", "10", "0"])
-    gexf_doc.add_node("1", "World", ["CCC", "DDD", "5", "7"])
+    gexf_doc.add_node("0", "Hello", ["AAA", "BBB", "10"])
+    gexf_doc.add_node("1", "World", ["CCC", "DDD", "5"])
     gexf_doc.add_edge("0", "1")
 
     gexf_doc.save(filename)

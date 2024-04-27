@@ -5,7 +5,6 @@
             <attribute id="0" title="Code Parent Id" type="string" />
             <attribute id="1" title="Hierarchy" type="string" />
             <attribute id="2" title="Text Length" type="integer" />
-            <attribute id="3" title="Codes Quotes" type="integer" />
         </attributes>
         <nodes>
             <node id="0" label="Hello">
@@ -13,7 +12,6 @@
                     <attvalue for="0" value="AAA" />
                     <attvalue for="1" value="BBB" />
                     <attvalue for="2" value="10" />
-                    <attvalue for="3" value="0" />
                 </attvalues>
             </node>
             <node id="1" label="World">
@@ -21,7 +19,6 @@
                     <attvalue for="0" value="CCC" />
                     <attvalue for="1" value="DDD" />
                     <attvalue for="2" value="5" />
-                    <attvalue for="3" value="7" />
                 </attvalues>
             </node>
         </nodes>
