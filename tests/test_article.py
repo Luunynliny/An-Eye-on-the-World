@@ -2,7 +2,11 @@ import pytest
 from selenium import webdriver
 
 from src.article import get_article_name, get_article_soup, is_article_abrogated, \
-    get_article_text_length, get_article_quote_ids, get_article_hierarchy
+    get_article_text_length, get_article_quote_ids, get_article_hierarchy, get_article_code_id
+
+CODE_CIVIL_ID: str = "LEGITEXT000006070721"
+CODE_DEONTOLOGIE_ARCHITECTES_ID: str = "LEGITEXT000006074232"
+CODE_DOMAINE_ETAT_ID: str = "LEGITEXT000006070208"
 
 CODE_CIVIL_ARTICLE_1_ID: str = "LEGIARTI000006419280"
 CODE_CIVIL_ARTICLE_21_19_ID: str = "LEGIARTI000006419879"
@@ -43,7 +47,7 @@ def test_get_article_name():
 
     assert get_article_name(code_civil_article_1_soup) == "Article 1"
     assert get_article_name(code_civil_article_21_19_soup) == "Article 21-19"
-    assert get_article_name(code_deontologie_architectes_article_1_soup)
+    assert get_article_name(code_deontologie_architectes_article_1_soup) == "Article 1"
 
 
 def test_is_article_abrogated():
@@ -112,4 +116,14 @@ def test_get_article_hierarchy():
     assert get_article_hierarchy(code_electoral_article_rstartstar273_soup) == "R**"
     assert get_article_hierarchy(code_monetaire_financier_article_dstart752_25_soup) == "D*"
     assert get_article_hierarchy(code_urbanisme_article_a424_1_soup) == "A"
-    assert get_article_hierarchy(code_civil_article_21_19_soup) == "CC"
+    assert get_article_hierarchy(code_civil_article_21_19_soup) == "NC"
+
+
+def test_get_article_code_id():
+    code_civil_article_1_soup = get_article_soup(CODE_CIVIL_ARTICLE_1_ID)
+    code_domaine_etat_article_r1_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_R1_ID)
+    code_deontologie_architectes_article_1_soup = get_article_soup(CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID)
+
+    assert get_article_code_id(code_civil_article_1_soup) == CODE_CIVIL_ID
+    assert get_article_code_id(code_domaine_etat_article_r1_soup) == CODE_DOMAINE_ETAT_ID
+    assert get_article_code_id(code_deontologie_architectes_article_1_soup) == CODE_DEONTOLOGIE_ARCHITECTES_ID

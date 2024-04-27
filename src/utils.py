@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from fake_useragent import UserAgent
 
 
 def get_soup(url: str) -> BeautifulSoup:
@@ -12,5 +13,12 @@ def get_soup(url: str) -> BeautifulSoup:
     Returns:
         BeautifulSoup: BeautifulSoup object.
     """
-    response = requests.get(url)
+    # Rotating proxies
+    ua = UserAgent()
+
+    headers = {'User-Agent': ua.random}
+    response = requests.get(url, headers=headers)
+
+    # ic(response.text)
+
     return BeautifulSoup(response.text, 'html.parser')

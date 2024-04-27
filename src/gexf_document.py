@@ -13,18 +13,26 @@ class GEXFDocument:
         self._nodes: ElementTree.Element = self._tree.find(".//nodes")
         self._edges: ElementTree.Element = self._tree.find(".//edges")
 
-    def add_node(self, node_id: str, node_label: str) -> None:
+    def add_node(self, node_id: str, node_label: str, node_attributes: list[str]) -> None:
         """
         Add a node to the document.
 
         Args:
             node_id (str): node id.
             node_label (str): node label.
+            node_attributes (list[str]): node attributes.
 
         Returns:
             None
         """
         node = ElementTree.Element("node", {"id": node_id, "label": node_label})
+        attributes = ElementTree.Element("attvalues")
+
+        for i, value in enumerate(node_attributes):
+            attribute = ElementTree.Element("attvalue", {"for": str(i), "value": value})
+            attributes.append(attribute)
+
+        node.append(attributes)
         self._nodes.append(node)
 
     def add_edge(self, edge_source: str, edge_target: str) -> None:

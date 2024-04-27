@@ -143,5 +143,18 @@ def get_article_hierarchy(article_soup: BeautifulSoup) -> str:
         if code in article_code:
             return code
 
-    # Special case for the Code civil as its divided in "Livres"
-    return "CC"
+    # Special case for the Code with no division in parts
+    # Code civil, Code de déontologie architectes...
+    return "NC"
+
+
+def get_article_code_id(article_soup: BeautifulSoup) -> str:
+    """
+    Get Article parent Code id.
+    Args:
+        article_soup (BeautifulSoup): Article soup.
+
+    Returns:
+        str: Code id.
+    """
+    return article_soup.select(".summary-header a")[0].attrs["href"].split("/")[3]
