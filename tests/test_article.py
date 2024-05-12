@@ -1,12 +1,7 @@
 import pytest
-from selenium import webdriver
 
-from src.article import get_article_name, get_article_soup, is_article_abrogated, \
-    get_article_text_length, get_article_quote_ids, get_article_hierarchy, get_article_code_id
-
-CODE_CIVIL_ID: str = "LEGITEXT000006070721"
-CODE_DEONTOLOGIE_ARCHITECTES_ID: str = "LEGITEXT000006074232"
-CODE_DOMAINE_ETAT_ID: str = "LEGITEXT000006070208"
+from src.article import get_article_data, get_article_hierarchy, get_article_citation_data
+from src.utils import generate_api_token
 
 CODE_CIVIL_ARTICLE_1_ID: str = "LEGIARTI000006419280"
 CODE_CIVIL_ARTICLE_21_19_ID: str = "LEGIARTI000006419879"
@@ -30,100 +25,46 @@ CODE_MONETAIRE_FINANCIER_Dstar752_25_ID: str = "LEGIARTI000046632944"
 
 
 @pytest.fixture
-def driver():
-    options = webdriver.FirefoxOptions()
-    options.add_argument("-headless")
-
-    driver = webdriver.Firefox(options=options)
-    yield driver
-
-    driver.quit()
+def api_token():
+    return generate_api_token()
 
 
-def test_get_article_name():
-    code_civil_article_1_soup = get_article_soup(CODE_CIVIL_ARTICLE_1_ID)
-    code_civil_article_21_19_soup = get_article_soup(CODE_CIVIL_ARTICLE_21_19_ID)
-    code_deontologie_architectes_article_1_soup = get_article_soup(CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID)
-
-    assert get_article_name(code_civil_article_1_soup) == "Article 1"
-    assert get_article_name(code_civil_article_21_19_soup) == "Article 21-19"
-    assert get_article_name(code_deontologie_architectes_article_1_soup) == "Article 1"
+def test_get_article_data(api_token):
+    assert get_article_data(api_token, CODE_CIVIL_ARTICLE_1_ID) == ("1", 101)
+    assert get_article_data(api_token, CODE_CIVIL_ARTICLE_21_19_ID) == ("21-19", 134)
+    assert get_article_data(api_token, CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID) == ("1", 28)
+    assert get_article_data(api_token, CODE_ELECTORAL_ARTICLE_Rstarstar273_ID) == ("R**273", 25)
 
 
-def test_is_article_abrogated():
-    code_civil_article_92_soup = get_article_soup(CODE_CIVIL_ARTICLE_92_ID)
-    code_domaine_etat_article_l3_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_L3_ID)
-
-    assert not is_article_abrogated(code_civil_article_92_soup)
-    assert is_article_abrogated(code_domaine_etat_article_l3_soup)
-
-
-def test_get_article_text_length():
-    code_civil_article_1_soup = get_article_soup(CODE_CIVIL_ARTICLE_1_ID)
-    code_civil_article_92_soup = get_article_soup(CODE_CIVIL_ARTICLE_92_ID)
-    code_deontologie_architectes_article_1_soup = get_article_soup(CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID)
-
-    assert get_article_text_length(code_civil_article_1_soup) == 101
-    assert get_article_text_length(code_civil_article_92_soup) == 64
-    assert get_article_text_length(code_deontologie_architectes_article_1_soup) == 28
-
-
-def test_get_article_quote_ids(driver):
+def test_get_article_citation_data(api_token):
     # Article quote other Codes Articles
-    code_civil_article_92_soup = get_article_soup(CODE_CIVIL_ARTICLE_92_ID)
-
-    assert get_article_quote_ids(code_civil_article_92_soup, driver) == ["LEGIARTI000006421855", "LEGIARTI000006421836",
-                                                                         "LEGIARTI000006421846",
-                                                                         "LEGIARTI000039367547"]
+    assert get_article_citation_data(api_token, CODE_CIVIL_ARTICLE_92_ID) == [
+        ("LEGIARTI000006421855", "LEGITEXT000006070721"),
+        ("LEGIARTI000006421836", "LEGITEXT000006070721"),
+        ("LEGIARTI000006421846", "LEGITEXT000006070721"),
+        ("LEGIARTI000039367547", "LEGITEXT000006070721")]
 
     # Article quote abrogated Code Articles
-    code_domaine_etat_article_r1_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_R1_ID)
-
-    assert get_article_quote_ids(code_domaine_etat_article_r1_soup, driver) == ["LEGIARTI000006350687"]
+    assert get_article_citation_data(api_token, CODE_DOMAINE_ETAT_ARTICLE_R1_ID) == [
+        ("LEGIARTI000006350687", "LEGITEXT000006070208")]
 
     # Article does not quoted other Codes Articles
-    code_civil_article_21_19_soup = get_article_soup(CODE_CIVIL_ARTICLE_21_19_ID)
-
-    assert get_article_quote_ids(code_civil_article_21_19_soup, driver) == []
+    assert get_article_citation_data(api_token, CODE_CIVIL_ARTICLE_21_19_ID) == []
 
     # Article does not quoted
-    code_civil_article_1_soup = get_article_soup(CODE_CIVIL_ARTICLE_1_ID)
-
-    assert get_article_quote_ids(code_civil_article_1_soup, driver) == []
+    assert get_article_citation_data(api_token, CODE_CIVIL_ARTICLE_1_ID) == []
 
     # Article is an orphan
-    code_deontologie_architectes_article_1_soup = get_article_soup(CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID)
-
-    assert get_article_quote_ids(code_deontologie_architectes_article_1_soup, driver) == []
+    assert get_article_citation_data(api_token, CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID) == []
 
 
 def test_get_article_hierarchy():
-    code_urbanisme_article_l101_1_soup = get_article_soup(CODE_URBANISME_ARTICLE_L101_1_ID)
-    code_electoral_article_lo119_soup = get_article_soup(CODE_ELECTORAL_ARTICLE_LO119_ID)
-    code_domaine_etat_article_r1_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_R1_ID)
-    code_procedure_penale_article_d1_soup = get_article_soup(CODE_PROCEDURE_PENALE_ARTICLE_D1_ID)
-    code_urbanisme_article_rstart121_1_1_soup = get_article_soup(CODE_URBANISME_ARTICLE_Rstar121_1_1_ID)
-    code_electoral_article_rstartstar273_soup = get_article_soup(CODE_ELECTORAL_ARTICLE_Rstarstar273_ID)
-    code_monetaire_financier_article_dstart752_25_soup = get_article_soup(CODE_MONETAIRE_FINANCIER_Dstar752_25_ID)
-    code_urbanisme_article_a424_1_soup = get_article_soup(CODE_URBANISME_ARTICLE_A424_1_ID)
-    code_civil_article_21_19_soup = get_article_soup(CODE_CIVIL_ARTICLE_21_19_ID)
-
-    assert get_article_hierarchy(code_urbanisme_article_l101_1_soup) == "L"
-    assert get_article_hierarchy(code_electoral_article_lo119_soup) == "LO"
-    assert get_article_hierarchy(code_domaine_etat_article_r1_soup) == "R"
-    assert get_article_hierarchy(code_procedure_penale_article_d1_soup) == "D"
-    assert get_article_hierarchy(code_urbanisme_article_rstart121_1_1_soup) == "R*"
-    assert get_article_hierarchy(code_electoral_article_rstartstar273_soup) == "R**"
-    assert get_article_hierarchy(code_monetaire_financier_article_dstart752_25_soup) == "D*"
-    assert get_article_hierarchy(code_urbanisme_article_a424_1_soup) == "A"
-    assert get_article_hierarchy(code_civil_article_21_19_soup) == "NC"
-
-
-def test_get_article_code_id():
-    code_civil_article_1_soup = get_article_soup(CODE_CIVIL_ARTICLE_1_ID)
-    code_domaine_etat_article_r1_soup = get_article_soup(CODE_DOMAINE_ETAT_ARTICLE_R1_ID)
-    code_deontologie_architectes_article_1_soup = get_article_soup(CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID)
-
-    assert get_article_code_id(code_civil_article_1_soup) == CODE_CIVIL_ID
-    assert get_article_code_id(code_domaine_etat_article_r1_soup) == CODE_DOMAINE_ETAT_ID
-    assert get_article_code_id(code_deontologie_architectes_article_1_soup) == CODE_DEONTOLOGIE_ARCHITECTES_ID
+    assert get_article_hierarchy("L101-1") == "L"
+    assert get_article_hierarchy("LO119") == "LO"
+    assert get_article_hierarchy("R1") == "R"
+    assert get_article_hierarchy("D1") == "D"
+    assert get_article_hierarchy("R*121-1-1") == "R*"
+    assert get_article_hierarchy("R**273") == "R**"
+    assert get_article_hierarchy("D*752_25") == "D*"
+    assert get_article_hierarchy("A424-1") == "A"
+    assert get_article_hierarchy("21-19") == "NC"

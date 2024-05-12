@@ -40,8 +40,8 @@ class GEXFDocument:
         Add an edge to the document.
 
         Args:
-            edge_source (): edge source.
-            edge_target (): edge target.
+            edge_source (str): edge source.
+            edge_target (str): edge target.
 
         Returns:
             None
@@ -57,7 +57,7 @@ class GEXFDocument:
             filename (str): file name without extension.
 
         Returns:
-            Nome
+            None
         """
         filepath = join(dirname(__file__), f"../gexf_files/{filename}.gexf")
 
