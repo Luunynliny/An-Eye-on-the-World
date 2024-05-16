@@ -1,7 +1,8 @@
-import requests
-from dotenv import dotenv_values
-from bs4 import BeautifulSoup
 from os.path import join, dirname
+
+import requests
+from bs4 import BeautifulSoup
+from dotenv import dotenv_values
 
 config = dotenv_values(join(dirname(__file__), ".env"))
 
@@ -9,6 +10,7 @@ API_BASE_URL: str = "https://sandbox-api.piste.gouv.fr/dila/legifrance/lf-engine
 CODES_DB_URL: str = "https://www.legifrance.gouv.fr/codes/texte_lc"
 
 DATE: str = "2024-04-20"
+REQUEST_TIMEOUT: int = 0.7
 
 
 def get_soup(url: str) -> BeautifulSoup:

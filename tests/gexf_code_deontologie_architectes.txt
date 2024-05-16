@@ -67,7 +67,7 @@
                 <attvalues>
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
-                    <attvalue for="2" value="11" />
+                    <attvalue for="2" value="49" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842421" label="Article 10">
@@ -82,6 +82,13 @@
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
                     <attvalue for="2" value="39" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006505216" label="Article 44">
+                <attvalues>
+                    <attvalue for="0" value="JORFTEXT000000509757" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="705" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842423" label="Article 11">
@@ -123,14 +130,21 @@
                 <attvalues>
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
-                    <attvalue for="2" value="18" />
+                    <attvalue for="2" value="125" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842429" label="Article 16">
                 <attvalues>
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
-                    <attvalue for="2" value="119" />
+                    <attvalue for="2" value="125" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000025577118" label="Article 3">
+                <attvalues>
+                    <attvalue for="0" value="JORFTEXT000000522423" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="248" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842430" label="Article 17">
@@ -144,7 +158,7 @@
                 <attvalues>
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
-                    <attvalue for="2" value="18" />
+                    <attvalue for="2" value="73" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842432" label="Article 19">
@@ -203,11 +217,32 @@
                     <attvalue for="2" value="31" />
                 </attvalues>
             </node>
+            <node id="LEGIARTI000006203026" label="Article 37">
+                <attvalues>
+                    <attvalue for="0" value="JORFTEXT000000519281" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="114" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000032860761" label="Article 22">
+                <attvalues>
+                    <attvalue for="0" value="JORFTEXT000000522423" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="247" />
+                </attvalues>
+            </node>
             <node id="LEGIARTI000006842442" label="Article 28">
                 <attvalues>
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
-                    <attvalue for="2" value="62" />
+                    <attvalue for="2" value="127" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006847420" label="Article 18">
+                <attvalues>
+                    <attvalue for="0" value="JORFTEXT000000522423" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="55" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842444" label="Article 30">
@@ -228,7 +263,7 @@
                 <attvalues>
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
-                    <attvalue for="2" value="89" />
+                    <attvalue for="2" value="90" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842447" label="Article 33">
@@ -301,11 +336,18 @@
                     <attvalue for="2" value="93" />
                 </attvalues>
             </node>
+            <node id="LEGIARTI000023755132" label="Article 12">
+                <attvalues>
+                    <attvalue for="0" value="JORFTEXT000000522423" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="162" />
+                </attvalues>
+            </node>
             <node id="LEGIARTI000006842458" label="Article 43">
                 <attvalues>
                     <attvalue for="0" value="LEGITEXT000006074232" />
                     <attvalue for="1" value="NC" />
-                    <attvalue for="2" value="14" />
+                    <attvalue for="2" value="77" />
                 </attvalues>
             </node>
             <node id="LEGIARTI000006842459" label="Article 44">
@@ -345,9 +387,17 @@
             </node>
         </nodes>
         <edges>
+            <edge source="LEGIARTI000006842422" target="LEGIARTI000006505216" />
             <edge source="LEGIARTI000006842428" target="LEGIARTI000006842443" />
+            <edge source="LEGIARTI000006842429" target="LEGIARTI000025577118" />
+            <edge source="LEGIARTI000006842441" target="LEGIARTI000006203026" />
+            <edge source="LEGIARTI000006842441" target="LEGIARTI000032860761" />
+            <edge source="LEGIARTI000006842443" target="LEGIARTI000006847420" />
             <edge source="LEGIARTI000006842444" target="LEGIARTI000006842428" />
+            <edge source="LEGIARTI000006842451" target="LEGIARTI000025577118" />
             <edge source="LEGIARTI000006842453" target="LEGIARTI000006842426" />
+            <edge source="LEGIARTI000006842457" target="LEGIARTI000023755132" />
+            <edge source="LEGIARTI000006842462" target="LEGIARTI000025577118" />
         </edges>
     </graph>
 </gexf>

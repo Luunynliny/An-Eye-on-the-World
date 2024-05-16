@@ -1,9 +1,11 @@
-from icecream import ic
+import time
+
 from tqdm import tqdm
 
 from src.article import get_article_data, get_article_citation_data, get_article_hierarchy
 from src.code import get_code_non_abrogated_articles, get_code_soup, get_code_title
 from src.gexf_document import GEXFDocument
+from src.utils import REQUEST_TIMEOUT
 
 
 def create_code_graph(api_token: str, code_id: str) -> None:
@@ -25,9 +27,6 @@ def create_code_graph(api_token: str, code_id: str) -> None:
     seen_article_ids: set[str] = set()
 
     for article_id in tqdm(get_code_non_abrogated_articles(code_soup), desc="Article retrieval"):
-
-        ic(article_id)
-
         if article_id not in seen_article_ids:
             article_number, article_text_length = get_article_data(api_token, article_id)
 
@@ -37,6 +36,8 @@ def create_code_graph(api_token: str, code_id: str) -> None:
                                                str(article_text_length)])
 
             seen_article_ids.add(article_id)
+
+        time.sleep(REQUEST_TIMEOUT)
 
         # Create citation links
         for citation_id, citation_code_parent_id in get_article_citation_data(api_token, article_id):
@@ -52,6 +53,7 @@ def create_code_graph(api_token: str, code_id: str) -> None:
                                                    str(citation_text_length)])
 
                 seen_article_ids.add(citation_id)
+                time.sleep(REQUEST_TIMEOUT)
 
     # Save result
     gexf_doc.save(get_code_title(api_token, code_id))

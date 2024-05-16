@@ -1,5 +1,4 @@
 import requests
-from icecream import ic
 
 from src.utils import API_BASE_URL
 
@@ -31,13 +30,7 @@ def get_article_data(api_token: str, article_id: str) -> tuple[str, str]:
         "id": article_id,
     }
 
-    response = requests.post(url, json=data, headers=headers)
-
-    ic(response.status_code)
-    ic(response.content)
-
-    response = response.json()
-
+    response = requests.post(url, json=data, headers=headers).json()
     return response["article"]["num"], len(response["article"]["texte"].split())
 
 
@@ -64,9 +57,9 @@ def get_article_citation_data(api_token: str, article_id: str) -> list[tuple[str
     citations = []
     for citation in response.get("liensCite", []):
         if citation["nature"] != "CODE":
-            pass
+            continue
 
-        if citation["dateVigeur"] < 0 or "art." not in citation["name"]:
+        if citation["dateVigeur"] is None or citation["dateVigeur"] < 0 or "art." not in citation["name"]:
             # Avoid abrogated unremoved quotation (e.g. Code du domaine de l'Etat Article R1 (2024-04-20))
             continue
 

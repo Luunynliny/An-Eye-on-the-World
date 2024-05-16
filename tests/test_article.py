@@ -11,6 +11,7 @@ CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID: str = "LEGIARTI000006842411"
 
 CODE_DOMAINE_ETAT_ARTICLE_R1_ID: str = "LEGIARTI000006350500"
 CODE_DOMAINE_ETAT_ARTICLE_L3_ID: str = "LEGIARTI000006350304"
+CODE_DOMAINE_ETAT_ARTICLE_A1_ID: str = "LEGIARTI000006350040"
 
 CODE_ELECTORAL_ARTICLE_LO119_ID: str = "LEGIARTI000020103138"
 CODE_ELECTORAL_ARTICLE_Rstarstar273_ID: str = "LEGIARTI000006355123"
@@ -56,6 +57,12 @@ def test_get_article_citation_data(api_token):
 
     # Article is an orphan
     assert get_article_citation_data(api_token, CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID) == []
+
+    # Not Code Article, but contains art. (Loi n°51-1508 du 31 décembre 1951 - art. 15, v. init.)
+    assert get_article_citation_data(api_token, CODE_DOMAINE_ETAT_ARTICLE_A1_ID) == [
+        ('LEGIARTI000006350512', 'LEGITEXT000006070208'),
+        ('LEGIARTI000006350707', 'LEGITEXT000006070208'),
+        ('LEGIARTI000045525641', 'LEGITEXT000006074075')]
 
 
 def test_get_article_hierarchy():
