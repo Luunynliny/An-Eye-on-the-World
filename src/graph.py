@@ -5,15 +5,16 @@ from tqdm import tqdm
 from src.article import get_article_data, get_article_citation_data, get_article_hierarchy
 from src.code import get_code_non_abrogated_articles, get_code_soup, get_code_title
 from src.gexf_document import GEXFDocument
-from src.utils import REQUEST_TIMEOUT
+from src.utils import REQUEST_TIMEOUT, generate_api_token
+
+FIFTY_MINUTES_S: int = 3000
 
 
-def create_code_graph(api_token: str, code_id: str) -> None:
+def create_code_graph(code_id: str) -> None:
     """
     Create a GEFX document graph of a Code.
 
     Args:
-        api_token (str): API token.
         code_id (str): Code id.
 
     Returns:
@@ -26,7 +27,16 @@ def create_code_graph(api_token: str, code_id: str) -> None:
     code_soup = get_code_soup(code_id)
     seen_article_ids: set[str] = set()
 
-    for article_id in tqdm(get_code_non_abrogated_articles(code_soup), desc="Article retrieval"):
+    # Init API token
+    api_token = generate_api_token()
+    api_token_creation_time_s = time.time()
+
+    for article_id in tqdm(get_code_non_abrogated_articles(code_soup), desc="Article retrieval", leave=False):
+        # Renew API token before the 1 hour expiration
+        if time.time() - api_token_creation_time_s > FIFTY_MINUTES_S:
+            api_token = generate_api_token()
+            api_token_creation_time_s = time.time()
+
         if article_id not in seen_article_ids:
             article_number, article_text_length = get_article_data(api_token, article_id)
 

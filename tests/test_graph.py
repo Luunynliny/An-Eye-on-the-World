@@ -19,7 +19,7 @@ def test_create_code_graph(api_token):
     with open("gexf_code_deontologie_architectes.txt", 'r') as f:
         code_deontologie_architectes = f.read()
 
-    create_code_graph(api_token, CODE_DEONTOLOGIE_ARCHITECTES_ID)
+    create_code_graph(CODE_DEONTOLOGIE_ARCHITECTES_ID)
     filename = get_code_title(api_token, CODE_DEONTOLOGIE_ARCHITECTES_ID)
 
     filepath = join(dirname(__file__), f"../gexf_files/{filename}.gexf")

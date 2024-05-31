@@ -59,8 +59,14 @@ def get_article_citation_data(api_token: str, article_id: str) -> list[tuple[str
         if citation["nature"] != "CODE":
             continue
 
-        if citation["dateVigeur"] is None or citation["dateVigeur"] < 0 or "art." not in citation["name"]:
-            # Avoid abrogated unremoved quotation (e.g. Code du domaine de l'Etat Article R1 (2024-04-20))
+        # Avoid abrogated unremoved quotation (e.g. Code du domaine de l'Etat Article R1 (2024-04-20))
+        if citation["dateVigeur"] is None:
+            continue
+
+        if citation["dateVigeur"] < 0:
+            continue
+
+        if "art." not in citation["name"]:
             continue
 
         citations.append((citation["id"], citation["cidText"]))
