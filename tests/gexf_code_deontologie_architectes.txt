@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gexf version="1.3">
+    <graph defaultedgetype="directed">
+        <attributes class="node">
+            <attribute id="0" title="Code Parent Id" type="string" />
+            <attribute id="1" title="Hierarchy" type="string" />
+            <attribute id="2" title="Text Length" type="integer" />
+        </attributes>
+        <nodes>
+            <node id="LEGIARTI000006842411" label="Article 1">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="28" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842412" label="Article 2">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="100" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842413" label="Article 3">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="62" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842415" label="Article 4">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="31" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842416" label="Article 5">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="68" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842417" label="Article 6">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="16" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842418" label="Article 7">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="28" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842419" label="Article 8">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="61" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842420" label="Article 9">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="49" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842421" label="Article 10">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="37" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842422" label="Article 10 bis">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="39" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842423" label="Article 11">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="58" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842425" label="Article 12">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="59" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842426" label="Article 13">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="43" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842427" label="Article 14">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="20" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842428" label="Article 15">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="86" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842443" label="Article 29">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="125" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842429" label="Article 16">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="125" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842430" label="Article 17">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="18" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842431" label="Article 18">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="73" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842432" label="Article 19">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="33" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842433" label="Article 20">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="20" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842435" label="Article 21">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="65" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842436" label="Article 22">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="89" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842437" label="Article 23">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="62" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842438" label="Article 24">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="4" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842439" label="Article 25">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="69" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842441" label="Article 27">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="31" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842442" label="Article 28">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="127" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842444" label="Article 30">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="58" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842445" label="Article 31">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="39" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842446" label="Article 32">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="90" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842447" label="Article 33">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="67" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842448" label="Article 34">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="61" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842449" label="Article 35">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="23" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842450" label="Article 36">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="105" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842451" label="Article 37">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="87" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842453" label="Article 38">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="69" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842454" label="Article 39">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="74" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842455" label="Article 40">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="18" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842456" label="Article 41">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="31" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842457" label="Article 42">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="93" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842458" label="Article 43">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="77" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842459" label="Article 44">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="31" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842460" label="Article 45">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="35" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842461" label="Article 46">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="235" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842462" label="Article 47">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="170" />
+                </attvalues>
+            </node>
+            <node id="LEGIARTI000006842463" label="Article 48">
+                <attvalues>
+                    <attvalue for="0" value="LEGITEXT000006074232" />
+                    <attvalue for="1" value="NC" />
+                    <attvalue for="2" value="15" />
+                </attvalues>
+            </node>
+        </nodes>
+        <edges>
+            <edge source="LEGIARTI000006842428" target="LEGIARTI000006842443" />
+            <edge source="LEGIARTI000006842444" target="LEGIARTI000006842428" />
+            <edge source="LEGIARTI000006842453" target="LEGIARTI000006842426" />
+        </edges>
+    </graph>
+</gexf>
