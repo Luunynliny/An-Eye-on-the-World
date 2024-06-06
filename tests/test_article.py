@@ -24,6 +24,8 @@ CODE_URBANISME_ARTICLE_A424_1_ID: str = "LEGIARTI000006814020"
 
 CODE_MONETAIRE_FINANCIER_Dstar752_25_ID: str = "LEGIARTI000046632944"
 
+CODE_CONSOMMATION_L432_6_ID: str = "LEGIARTI000032222797"
+
 
 @pytest.fixture
 def api_token():
@@ -35,6 +37,9 @@ def test_get_article_data(api_token):
     assert get_article_data(api_token, CODE_CIVIL_ARTICLE_21_19_ID) == ("21-19", 134)
     assert get_article_data(api_token, CODE_DEONTOLOGIE_ARCHITECTES_ARTICLE_1_ID) == ("1", 28)
     assert get_article_data(api_token, CODE_ELECTORAL_ARTICLE_Rstarstar273_ID) == ("R**273", 25)
+
+    # Article not avaible or not created at the date
+    assert get_article_data(api_token, CODE_CONSOMMATION_L432_6_ID) == (None, None)
 
 
 def test_get_article_citation_data(api_token):

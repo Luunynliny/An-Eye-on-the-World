@@ -1,6 +1,6 @@
 import requests
 
-from src.utils import API_BASE_URL
+from src.utils import API_BASE_URL, wait
 
 ARTICLE_HIERARCHY = ["LO",  # Article LO119 Code électoral (2024-04-20)
                      "L",  # Article L101-1 Code de l'urbanisme (2024-04-20)
@@ -12,7 +12,8 @@ ARTICLE_HIERARCHY = ["LO",  # Article LO119 Code électoral (2024-04-20)
                      "A"]  # Article A424-1 Code de l'urbanisme (2024-04-20)
 
 
-def get_article_data(api_token: str, article_id: str) -> tuple[str, str]:
+@wait
+def get_article_data(api_token: str, article_id: str):  # -> tuple[str, str] | tuple[None, None]:
     """
     Get Article data.
 
@@ -21,7 +22,7 @@ def get_article_data(api_token: str, article_id: str) -> tuple[str, str]:
         article_id (str): Article id.
 
     Returns:
-        tuple[str, str]: Article number and text length.
+        tuple[str, str] | tuple[None, None]: Article number and text length, None and None if article is unavailable.
     """
     url = f"{API_BASE_URL}/consult/getArticle"
     headers = {"Authorization": f"Bearer {api_token}"}
@@ -31,9 +32,14 @@ def get_article_data(api_token: str, article_id: str) -> tuple[str, str]:
     }
 
     response = requests.post(url, json=data, headers=headers).json()
+
+    if response["article"] is None:
+        return None, None
+
     return response["article"]["num"], len(response["article"]["texte"].split())
 
 
+@wait
 def get_article_citation_data(api_token: str, article_id: str) -> list[tuple[str, str]]:
     """
     Get Code Articles quoted by the Article.

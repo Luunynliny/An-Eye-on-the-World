@@ -3,12 +3,12 @@ from os.path import join
 import requests
 from bs4 import BeautifulSoup
 
-from src.utils import API_BASE_URL, get_soup, DATE, CODES_DB_URL
+from src.utils import API_BASE_URL, get_soup, DATE, CODES_DB_URL, wait
 
 
 def get_non_abrogated_codes(api_token: str) -> list[tuple[str, str]]:
     """
-    Get all non-abrogated codes.
+    Get all non-abrogated codes, sorted by title.
 
     Args:
         api_token (str): API token.
@@ -29,8 +29,9 @@ def get_non_abrogated_codes(api_token: str) -> list[tuple[str, str]]:
     }
 
     response = requests.post(url, json=data, headers=headers)
+    non_abrogated_codes = ((r["id"], r["titre"]) for r in response.json()["results"])
 
-    return [(r["id"], r["titre"]) for r in response.json()["results"]]
+    return list(sorted(non_abrogated_codes, key=lambda x: x[1]))
 
 
 def get_code_soup(code_id: str) -> BeautifulSoup:
@@ -59,6 +60,7 @@ def get_code_non_abrogated_articles(code_soup: BeautifulSoup) -> list[str]:
     return [element.get("id")[3:] for element in code_soup.select(".articleLink:not(.abrogated)")]
 
 
+@wait
 def get_code_title(api_token: str, code_id: str) -> str:
     """
     Get the title of a Code.
